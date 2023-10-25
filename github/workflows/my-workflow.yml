@@ -5,8 +5,9 @@ on:
     branches:
       - bury08
 
+
 jobs:
-  install:
+  run_tests:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone
@@ -15,9 +16,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Install dependences
+      - name: Run unit tests
         run: |
           npm install
           chmod u+x ./node_modules/.bin/*
-      - name: Run unit tests
-        run: npm test
+          npm test
